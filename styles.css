@@ -1,0 +1,22 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+#quiz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f4f4f4;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
