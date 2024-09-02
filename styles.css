@@ -1,7 +1,11 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
     overflow-x: hidden;
 }
 .quiz-container {
@@ -11,9 +15,13 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
 }
 h2 {
     color: #444;
+    margin-bottom: 20px;
 }
 .question {
     margin-bottom: 20px;
@@ -21,6 +29,7 @@ h2 {
 .options {
     list-style-type: none;
     padding: 0;
+    text-align: left;
 }
 .options li {
     margin-bottom: 10px;
@@ -50,20 +59,20 @@ button {
     cursor: pointer;
     border-radius: 4px;
     display: none;
+    margin-top: 20px;
 }
 button:hover {
     background-color: #0056b3;
 }
-.confetti {
+.celebration-item {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #ffcc00;
-    top: -100px;
-    animation: fall 2s ease-in-out forwards;
+    width: 20px;
+    height: 20px;
+    top: -50px;
+    animation: drop 2s ease-in forwards;
     border-radius: 50%;
 }
-@keyframes fall {
+@keyframes drop {
     to {
         top: 100vh;
         transform: rotate(360deg);

@@ -36,9 +36,6 @@ function showQuestion() {
           </ul>
       </div>
   `;
-
-  // Hide the celebration banner
-  document.getElementById('celebration').classList.remove('show');
 }
 
 function selectAnswer(optionElement, selectedOption) {
@@ -48,13 +45,11 @@ function selectAnswer(optionElement, selectedOption) {
   if (selectedOption === currentQuestion.answer) {
       optionElement.classList.add('correct');
       score++;
-      // Show the celebration banner
-      document.getElementById('celebration').classList.add('show');
+      dropCelebrationItems();
   } else {
       optionElement.classList.add('incorrect');
   }
 
-  // Disable further selection
   allOptions.forEach(option => {
       option.setAttribute('onClick', ''); // Disable click
       if (option.textContent === currentQuestion.answer) {
@@ -62,7 +57,6 @@ function selectAnswer(optionElement, selectedOption) {
       }
   });
 
-  // Show the "Next" button
   document.querySelector('button').style.display = 'inline-block';
 }
 
@@ -71,11 +65,44 @@ function nextQuestion() {
 
   if (currentQuestionIndex < questions.length) {
       showQuestion();
-      document.querySelector('button').style.display = 'none'; // Hide the Next button after moving to the next question
+      document.querySelector('button').style.display = 'none';
   } else {
       document.getElementById('result').textContent = `You scored ${score} out of ${questions.length}.`;
-      document.querySelector('button').style.display = 'none';  // Hide the Next button after the last question
+      triggerFinalCelebration();
   }
+}
+
+function dropCelebrationItems() {
+  const celebrationContainer = document.createElement('div');
+  for (let i = 0; i < 50; i++) {
+      const celebrationItem = document.createElement('div');
+      celebrationItem.classList.add('celebration-item');
+      celebrationItem.style.left = Math.random() * 100 + 'vw';
+      celebrationItem.style.backgroundColor = getRandomColor();
+      celebrationItem.style.animationDelay = Math.random() * 0.5 + 's'; // Separate drop timing
+      celebrationContainer.appendChild(celebrationItem);
+  }
+  document.body.appendChild(celebrationContainer);
+
+  setTimeout(() => {
+      celebrationContainer.remove();
+  }, 2000);
+}
+
+function triggerFinalCelebration() {
+  for (let i = 0; i < 100; i++) {
+      const celebrationItem = document.createElement('div');
+      celebrationItem.classList.add('celebration-item');
+      celebrationItem.style.left = Math.random() * 100 + 'vw';
+      celebrationItem.style.backgroundColor = getRandomColor();
+      celebrationItem.style.animationDelay = Math.random() * 0.5 + 's';
+      document.body.appendChild(celebrationItem);
+  }
+}
+
+function getRandomColor() {
+  const colors = ['#ffcc00', '#ff6f61', '#ffccff', '#66ccff', '#99ff99'];
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 
 // Show the first question initially
