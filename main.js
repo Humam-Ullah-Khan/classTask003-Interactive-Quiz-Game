@@ -25,7 +25,7 @@ function showQuestion() {
 
   let optionsHtml = '';
   currentQuestion.options.forEach(option => {
-      optionsHtml += `<li><input type="radio" name="q${currentQuestionIndex}" value="${option}"> ${option}</li>`;
+      optionsHtml += `<li onClick="selectAnswer(this, '${option}')">${option}</li>`;
   });
 
   quizContent.innerHTML = `
@@ -38,20 +38,37 @@ function showQuestion() {
   `;
 }
 
-function nextQuestion() {
-  const selectedOption = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
-  
-  if (selectedOption && selectedOption.value === questions[currentQuestionIndex].answer) {
+function selectAnswer(optionElement, selectedOption) {
+  const currentQuestion = questions[currentQuestionIndex];
+  const allOptions = document.querySelectorAll('.options li');
+
+  if (selectedOption === currentQuestion.answer) {
+      optionElement.classList.add('correct');
       score++;
+  } else {
+      optionElement.classList.add('incorrect');
   }
 
+  // Disable further selection
+  allOptions.forEach(option => {
+      option.setAttribute('onClick', ''); // Disable click
+      if (option.textContent === currentQuestion.answer) {
+          option.classList.add('correct'); // Show correct answer
+      }
+  });
+
+  // Show the "Next" button
+  document.querySelector('button').style.display = 'inline-block';
+}
+
+function nextQuestion() {
   currentQuestionIndex++;
 
   if (currentQuestionIndex < questions.length) {
       showQuestion();
+      
   } else {
       document.getElementById('result').textContent = `You scored ${score} out of ${questions.length}.`;
-      document.querySelector('button').style.display = 'none';  // Hide the Next button after the last question
   }
 }
 
