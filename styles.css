@@ -15,18 +15,19 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
-    width: 80%;
+    width: 280px;
     max-width: 400px;
     text-align: center;
 }
 h2 {
-    color: #444;
+    color: #5b76ff;
     margin-bottom: 20px;
 }
 .question {
     margin-bottom: 20px;
 }
 .options {
+    color: #007bff;
     list-style-type: none;
     padding: 0;
     text-align: left;
@@ -77,4 +78,21 @@ button:hover {
         top: 100vh;
         transform: rotate(360deg);
     }
+}
+/* Timer styles */
+.timer {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #444;
+}
+.timer.warning {
+    color: red;
+    animation: vibrate 0.5s infinite;
+}
+@keyframes vibrate {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
 }
