@@ -36,6 +36,9 @@ function showQuestion() {
           </ul>
       </div>
   `;
+
+  // Hide the celebration banner
+  document.getElementById('celebration').classList.remove('show');
 }
 
 function selectAnswer(optionElement, selectedOption) {
@@ -45,6 +48,8 @@ function selectAnswer(optionElement, selectedOption) {
   if (selectedOption === currentQuestion.answer) {
       optionElement.classList.add('correct');
       score++;
+      // Show the celebration banner
+      document.getElementById('celebration').classList.add('show');
   } else {
       optionElement.classList.add('incorrect');
   }
@@ -66,9 +71,10 @@ function nextQuestion() {
 
   if (currentQuestionIndex < questions.length) {
       showQuestion();
-      
+      document.querySelector('button').style.display = 'none'; // Hide the Next button after moving to the next question
   } else {
       document.getElementById('result').textContent = `You scored ${score} out of ${questions.length}.`;
+      document.querySelector('button').style.display = 'none';  // Hide the Next button after the last question
   }
 }
 

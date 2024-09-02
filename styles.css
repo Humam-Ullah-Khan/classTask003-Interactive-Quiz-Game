@@ -1,21 +1,18 @@
 body {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow-x: hidden;
 }
 .quiz-container {
-    width: 280px;
-    background-color: #bfc1a6;
+    background-color: #fff;
     padding: 20px;
-    margin-top: 40px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 h2 {
-    text-align: center;
     color: #444;
 }
 .question {
@@ -33,10 +30,12 @@ h2 {
     transition: background-color 0.3s;
 }
 .options li.correct {
-    color: #28a745; /* Green for correct answer */
+    background-color: #28a745; /* Green for correct answer */
+    color: white;
 }
 .options li.incorrect {
-    color: #dc3545; /* Red for incorrect answer */
+    background-color: #dc3545; /* Red for incorrect answer */
+    color: white;
 }
 .result {
     margin-top: 20px;
@@ -45,7 +44,7 @@ h2 {
 }
 button {
     padding: 10px 20px;
-    background-color: #108500;
+    background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
@@ -53,5 +52,20 @@ button {
     display: none;
 }
 button:hover {
-    background-color: #06a509;
+    background-color: #0056b3;
+}
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffcc00;
+    top: -100px;
+    animation: fall 2s ease-in-out forwards;
+    border-radius: 50%;
+}
+@keyframes fall {
+    to {
+        top: 100vh;
+        transform: rotate(360deg);
+    }
 }
