@@ -1,98 +1,80 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #9a9a9a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
+    flex-direction: column;
 }
-.quiz-container {
-    background-color: #d0cfcf;
+
+#quizContainer {
+    background-color: rgb(141, 141, 141);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 400px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-    width: 280px;
-    max-width: 400px;
     text-align: center;
 }
-h2 {
-    color: #3f5fff;
-    margin-bottom: 20px;
-}
+
 .question {
+    font-size: 1.2em;
+    color: #333;
     margin-bottom: 20px;
 }
+
 .options {
-    color: #000000;
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    text-align: left;
 }
+
 .options li {
-    margin-bottom: 10px;
     padding: 10px;
-    border-radius: 5px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-bottom: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid transparent;
 }
-.options li.correct {
-    background-color: #28a745; /* Green for correct answer */
+
+.options li:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-3px);
+}
+
+.correct {
+    background-color: #32cd32;
+    color: rgb(0, 0, 0);
+    border: 2px solid #28a745;
+}
+
+.incorrect {
+    background-color: #ff6961;
     color: white;
+    border: 2px solid #dc3545;
 }
-.options li.incorrect {
-    background-color: #dc3545; /* Red for incorrect answer */
-    color: white;
-}
-.result {
-    margin-top: 20px;
-    font-weight: bold;
-    color: #28a745;
-}
+
 button {
-    padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
     cursor: pointer;
-    border-radius: 4px;
     display: none;
-    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
+
 button:hover {
     background-color: #0056b3;
 }
-.celebration-item {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: -50px;
-    animation: drop 2s ease-in forwards;
-    border-radius: 50%;
-}
-@keyframes drop {
-    to {
-        top: 100vh;
-        transform: rotate(360deg);
-    }
-}
-/* Timer styles */
-.timer {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #444;
-}
-.timer.warning {
-    color: red;
-    animation: vibrate 0.5s infinite;
-}
-@keyframes vibrate {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
+
+#result {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #007bff;
 }
