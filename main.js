@@ -10,9 +10,9 @@ const questions = [
         answer: "Jasmine"
     },
     {
-        question: "Who is the Prime Minister of Pakistan?",
+        question: "The First Female Prime Minister of Pakistan?",
         options: ["Benazir Bhutto", "Imran Khan", "Shahbaz Shareef", "Liaqat Ali"],
-        answer: "Shahbaz Shareef"
+        answer: "Benazir Bhutto"
     }
 ];
 

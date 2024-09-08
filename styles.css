@@ -1,6 +1,6 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9;
+    font-family: verdana;
+    background-color: #d2d2d7;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,22 +10,23 @@ body {
     flex-direction: column;
 }
 
-#quizContainer {
-    background-color: rgb(141, 141, 141);
+#quizContent {
+    background-color: rgb(143, 143, 143);
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 290px;
     padding: 20px;
     text-align: center;
 }
 
 .question {
     font-size: 1.2em;
-    color: #333;
+    color: #000000;
     margin-bottom: 20px;
 }
 
 .options {
+    color: rgb(103, 103, 103);
     list-style: none;
     padding: 0;
 }
@@ -47,13 +48,13 @@ body {
 
 .correct {
     background-color: #32cd32;
-    color: rgb(0, 0, 0);
+    color: green;
     border: 2px solid #28a745;
 }
 
 .incorrect {
     background-color: #ff6961;
-    color: white;
+    color: red;
     border: 2px solid #dc3545;
 }
 
