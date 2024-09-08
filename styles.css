@@ -1,17 +1,16 @@
 body {
-    font-family: verdana;
-    background-color: #d2d2d7;
+    font-family: Verdana, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column;
 }
 
-#quizContent {
-    background-color: rgb(143, 143, 143);
+#quizContainer {
+    background-color: rgb(148, 148, 148);
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     width: 290px;
@@ -26,7 +25,6 @@ body {
 }
 
 .options {
-    color: rgb(103, 103, 103);
     list-style: none;
     padding: 0;
 }
@@ -54,8 +52,13 @@ body {
 
 .incorrect {
     background-color: #ff6961;
-    color: red;
+    color: rgb(255, 0, 0);
     border: 2px solid #dc3545;
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
 }
 
 button {
@@ -75,7 +78,8 @@ button:hover {
 }
 
 #result {
+    text-align: end;
     font-size: 1.2em;
     margin-top: 20px;
-    color: #007bff;
+    color: #000000;
 }
